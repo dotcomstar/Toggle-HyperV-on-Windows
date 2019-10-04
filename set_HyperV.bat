@@ -28,7 +28,7 @@ goto Prompt
 ::
 :Prompt
 :: Prompt the user for input.
-set /p ANSWER=Do you want restart Now (Y/N)?
+set /p ANSWER=Do you want restart now (Y/N)?
 :: Note that `/I` means to read case-insensitive
 if /I "%ANSWER%"=="y" goto Yes
 if /I "%ANSWER%"=="n" goto No
