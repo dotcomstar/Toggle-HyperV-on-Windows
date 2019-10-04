@@ -34,13 +34,13 @@ if /I "%ANSWER%"=="y" goto Yes
 if /I "%ANSWER%"=="n" goto No
 ::
 :Yes
-REM Restart right away.
+:: Restart right away.
 echo Restarting...
 shutdown /r /t 0
 goto Continue
 ::
 :No
-REM Do Nothing.
+:: Do Nothing.
 echo Make sure to restart your computer for the changes to take effect.
 goto Continue
 ::
