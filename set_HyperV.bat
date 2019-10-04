@@ -1,31 +1,34 @@
 :: Suppress verbose output of each line in the file (prints all by default).
 @echo off
 :: Ensure that exactly one argument is passed in to the program to specify
-:: whether to enable or disable the HyperV
+:: whether to enable or disable the HyperV.
 if not "%~1"=="" if "%~2"=="" goto SecondCheck
 :InvalidArgumentMessage
 ECHO This script requires exactly one parameter:
-ECHO - enable or disable (the HyperV)
+ECHO - [e]nable or [d]isable (the HyperV)
 goto :EOF
 ::
 :SecondCheck
 :: Store the argument in a temporary variable for string comparison.
 set argument=%~1
-:: `/I` means to read case-insensitive
+:: `/I` means to read case-insensitive.
 if /I "%argument%"=="enable" goto Enable
 if /I "%argument%"=="disable" goto Disable
+:: Shortcuts for the same commands.
+if /I "%argument%"=="e" goto Enable
+if /I "%argument%"=="d" goto Disable
 ::else
 goto InvalidArgumentMessage
 ::
-:: Enable/Disable HyperV
+:: Enable/Disable HyperV.
 :Enable
 bcdedit /set hypervisorlaunchtype auto
-ECHO "HyperV enabled"
+ECHO HyperV enabled
 goto Prompt
 ::
 :Disable
 bcdedit /set hypervisorlaunchtype off
-ECHP "HyperV disabled"
+ECHO HyperV disabled
 goto Prompt
 ::
 :Prompt
