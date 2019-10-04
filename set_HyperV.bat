@@ -20,10 +20,12 @@ goto InvalidArgumentMessage
 :: Enable/Disable HyperV
 :Enable
 bcdedit /set hypervisorlaunchtype auto
+ECHO "HyperV enabled"
 goto Prompt
 ::
 :Disable
 bcdedit /set hypervisorlaunchtype off
+ECHP "HyperV disabled"
 goto Prompt
 ::
 :Prompt
